@@ -1,4 +1,5 @@
-import java.util.Objects;
+// written by Jesiah Loosman
+
 import java.util.Scanner;
 
 public class Main {
@@ -7,11 +8,11 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         scan.useDelimiter("\\n");
 
-        Parkhaus parkhaus = new Parkhaus(1);
+        int floorCount = 1;
+        Parkhaus parkhaus = new Parkhaus(floorCount);
 
-        boolean loop = true;
 
-        while (loop) {
+        while (true) {
             System.out.println("\n\n\n");
             System.out.println("Free places: " + Parkhaus.getFree());
 
@@ -43,7 +44,7 @@ public class Main {
                 }
 
                 case "exit": {
-                    loop = false;
+                    System.exit(0);
                     break;
                 }
                 default: {
