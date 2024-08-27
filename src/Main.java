@@ -22,22 +22,21 @@ public class Main {
 
             switch (result) {
                 case "1": {
-                    Car car = new Car();
+                    Car car = CarCreator.createCar();
+
                     parkhaus.parken(car);
                     break;
                 }
                 case "2": {
-                    String id = Car.chooseCar();
-                    if (id.isEmpty()) { continue; }
-                    Car car = parkhaus.getCarById(id);
+                    Car car = CarCreator.chooseCar();
+                    if (car == null) { continue; }
 
                     parkhaus.payTicket(car);
                     break;
                 }
                 case "3": {
-                    String id = Car.chooseCar();
-                    if(id.isEmpty()) { continue; }
-                    Car car = parkhaus.getCarById(id);
+                    Car car = CarCreator.chooseCar();
+                    if(car == null) { continue; }
 
                     parkhaus.ausparken(car);
                     break;

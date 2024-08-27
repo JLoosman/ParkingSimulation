@@ -23,19 +23,9 @@ public class Parkhaus {
         return count;
     }
 
-    public Car getCarById(String id) {
-        for (Stockwerk stockwerk : stockwerke) {
-            if (stockwerk.getCarById(id) != null) {
-                return stockwerk.getCarById(id);
-            }
-        }
-        System.out.println("found nothing");
-        return null;
-    }
-
     public void payTicket(Car car) {
         for (Stockwerk stockwerk : stockwerke) {
-            if (stockwerk.getCarById(car.getId()) != null) {
+            if (stockwerk.getCar(car) != null) {
                 stockwerk.payTicket(car.getTicket());
             }
         }

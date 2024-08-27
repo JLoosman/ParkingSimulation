@@ -20,12 +20,12 @@ public class Stockwerk {
         return count;
     }
 
-    public Car getCarById(String id) {
+    public Car getCar(Car car) {
         for (Parkplatz parkplatz : parkplätze) {
             if (parkplatz.getParkedCar() == null) {
                 continue;
             }
-            if (parkplatz.getParkedCar().getId().equals(id)) {
+            if (parkplatz.getParkedCar().equals(car)) {
                 return parkplatz.getParkedCar();
             }
         }
@@ -55,7 +55,7 @@ public class Stockwerk {
             }
             if (parkplatz.getParkedCar().equals(car)) {
                 parkplatz.setParkedCar(null);
-                Car.removeCar(car.getId());
+                CarCreator.removeCar(car);
                 System.out.println("Successfully released car");
                 return 0;
             }

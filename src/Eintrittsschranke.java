@@ -4,7 +4,7 @@ public class Eintrittsschranke extends Schranke {
     public int passGate(Car car) {
         if (Parkhaus.getFree() <= 0) {
             System.out.println("No Free Parking lots left");
-            Car.removeCar(car.getId());
+            CarCreator.removeCar(car);
             return -1;
         }
 
