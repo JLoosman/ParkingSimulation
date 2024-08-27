@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Stockwerk {
     private Parkplatz[] parkplätze = new Parkplatz[20];
     private Kasse kasse = new Kasse();

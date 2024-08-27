@@ -16,7 +16,7 @@ public class Main {
             System.out.println("\n\n\n");
             System.out.println("Free places: " + Parkhaus.getFree());
 
-            System.out.println("[1] park a new Car       [2] pay a ticket       [3] release a car       [exit] close session");
+            System.out.println("[1] park a new main.Car       [2] pay a ticket       [3] release a car       [exit] close session");
             System.out.println("Choose your option...");
 
             String result = scan.nextLine();
