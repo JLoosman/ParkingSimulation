@@ -2,22 +2,22 @@ import java.util.Scanner;
 
 public class Menu {
     Parkhaus parkhaus;
+    UI ui;
 
-    public Menu(Parkhaus parkhaus) {
+    public Menu(Parkhaus parkhaus, UI ui) {
         this.parkhaus = parkhaus;
+        this.ui = ui;
     }
+
     public void start() {
-        Scanner scan = new Scanner(System.in);
-        scan.useDelimiter("\\n");
 
         while (true) {
             System.out.println("\n\n\n");
-            System.out.println("Free places: " + Parkhaus.getFree());
+            ui.printMessage("Free places: " + Parkhaus.getFree());
 
-            System.out.println("[1] park a new Car       [2] pay a ticket       [3] release a car       [exit] close session");
-            System.out.println("Choose your option...");
+            ui.printMessage("[1] park a new Car       [2] pay a ticket       [3] release a car       [exit] close session");
 
-            String result = scan.nextLine();
+            String result = ui.getString("Choose your option...");
 
             switch (result) {
                 case "1": {
@@ -46,7 +46,7 @@ public class Menu {
                     break;
                 }
                 default: {
-                    System.out.println("Please choose a valid option!");
+                    ui.printMessage("Please choose a valid option!");
                     break;
                 }
             }

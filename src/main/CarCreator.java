@@ -19,7 +19,7 @@ public class CarCreator {
         }
 
         Scanner scan = new Scanner(System.in);
-        System.out.println("Choose your main.Car...");
+        System.out.println("Choose your Car...");
         String userChosenID = scan.nextLine();
         if(userChosenID.isEmpty() || !Character.isDigit(userChosenID.charAt(0)) || Integer.parseInt(userChosenID) <= 0 || Integer.parseInt(userChosenID) > cars.size()) {
             System.out.println("no valid id provided");
