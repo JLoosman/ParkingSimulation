@@ -14,10 +14,7 @@ public class TerminalUI implements UI {
 
         Scanner scan = new Scanner(System.in);
 
-        String result = scan.nextLine();
-
-        // scan.close();
-        return result;
+        return scan.nextLine();
     }
 
     public void displayCars(ArrayList<Car> cars) {

@@ -6,6 +6,4 @@ public class Austrittschranke extends Schranke{
         }
         return 0;
     }
-
-
 }

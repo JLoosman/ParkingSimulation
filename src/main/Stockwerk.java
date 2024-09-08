@@ -17,18 +17,6 @@ public class Stockwerk {
         return count;
     }
 
-    public Car getCar(Car car) {
-        for (Parkplatz parkplatz : parkplätze) {
-            if (parkplatz.getParkedCar() == null) {
-                continue;
-            }
-            if (parkplatz.getParkedCar().equals(car)) {
-                return parkplatz.getParkedCar();
-            }
-        }
-        return null;
-    }
-
     public int parkCar(Car car) {
         for (Parkplatz parkplatz : parkplätze) {
             if (parkplatz.getParkedCar() == null) {
