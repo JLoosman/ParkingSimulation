@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Menu {
     private final Parkhaus parkhaus;
@@ -35,7 +34,9 @@ public class Menu {
                     Car car = chooseCar();
                     if (car == null) { continue; }
 
-                    parkhaus.payTicket(car);
+                    double price = car.getTicket().pay();
+                    ui.printMessage("Dein Aufenthalt kostet " + price + " CHF");
+
                     break;
                 }
                 case "3": {

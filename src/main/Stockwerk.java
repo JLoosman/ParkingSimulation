@@ -1,6 +1,5 @@
 public class Stockwerk {
     private Parkplatz[] parkplätze = new Parkplatz[20];
-    private Kasse kasse = new Kasse();
 
     public Stockwerk() {
         for(int i = 0; i < parkplätze.length; i++) {
@@ -28,10 +27,6 @@ public class Stockwerk {
             }
         }
         return null;
-    }
-
-    public void payTicket(Ticket ticket) {
-        kasse.payTicket(ticket);
     }
 
     public int parkCar(Car car) {

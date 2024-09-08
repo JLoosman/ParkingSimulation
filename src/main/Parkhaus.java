@@ -23,14 +23,6 @@ public class Parkhaus {
         return count;
     }
 
-    public void payTicket(Car car) {
-        for (Stockwerk stockwerk : stockwerke) {
-            if (stockwerk.getCar(car) != null) {
-                stockwerk.payTicket(car.getTicket());
-            }
-        }
-    }
-
     public int parken(Car car) {
         if(eintrittsschranke.passGate(car) == -1) { return -1; }
 
