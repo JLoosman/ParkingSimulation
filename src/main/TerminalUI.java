@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TerminalUI implements UI {
@@ -17,5 +18,11 @@ public class TerminalUI implements UI {
 
         // scan.close();
         return result;
+    }
+
+    public void displayCars(ArrayList<Car> cars) {
+        for(int i = 0; i < cars.size(); i++) {
+            System.out.println(i + 1 + ") " + cars.get(i).getId());
+        }
     }
 }
