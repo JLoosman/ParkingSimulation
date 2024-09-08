@@ -47,12 +47,9 @@ public class Stockwerk {
             if (parkplatz.getParkedCar().equals(car)) {
                 parkplatz.setParkedCar(null);
                 CarCreator.removeCar(car);
-                System.out.println("Successfully released car");
                 return 0;
             }
         }
-
-        System.out.println("Couldnt find a car to release");
         return -1;
     }
 }

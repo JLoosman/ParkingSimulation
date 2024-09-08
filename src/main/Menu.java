@@ -43,7 +43,11 @@ public class Menu {
                     Car car = chooseCar();
                     if(car == null) { continue; }
 
-                    parkhaus.ausparken(car);
+                    if (parkhaus.ausparken(car) == -1) {
+                        ui.printMessage("You have to pay your ticket");
+                    } else {
+                        ui.printMessage("Car released successfully");
+                    }
                     break;
                 }
 
