@@ -38,11 +38,9 @@ public class Stockwerk {
         for (Parkplatz parkplatz : parkplätze) {
             if (parkplatz.getParkedCar() == null) {
                 parkplatz.setParkedCar(car);
-                System.out.println("successfully parked the car");
                 return 0;
             }
         }
-        System.out.println("Couldnt find a parking lot");
         return -1;
     }
 

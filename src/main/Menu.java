@@ -23,7 +23,12 @@ public class Menu {
                 case "1": {
                     Car car = CarCreator.createCar();
 
-                    parkhaus.parken(car);
+                    if(parkhaus.parken(car) == -1) {
+                        ui.printMessage("Couldn't find a parking lot");
+                       CarCreator.removeCar(car);
+                    } else {
+                        ui.printMessage("Parked successfully");
+                    }
                     break;
                 }
                 case "2": {

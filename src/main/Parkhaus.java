@@ -31,16 +31,13 @@ public class Parkhaus {
         }
     }
 
-    public void parken(Car car) {
-        if(eintrittsschranke.passGate(car) == -1) {
-           return;
-        }
+    public int parken(Car car) {
+        if(eintrittsschranke.passGate(car) == -1) { return -1; }
 
         for (Stockwerk stockwerk : stockwerke) {
-            if (stockwerk.parkCar(car) == 0) {
-                return;
-            }
+            if (stockwerk.parkCar(car) == 0) { return 0; }
         }
+        return -1;
     }
 
     public void ausparken(Car car) {
@@ -50,16 +47,14 @@ public class Parkhaus {
         String result = scan.nextLine();
 
         if(result.equals("1") || result.equals("2")) {
-           if (result.equals("1") ? austrittschranke1.passGate(car) == -1 : austrittschranke2.passGate(car) == -1) {return;}
+           if (result.equals("1") ? austrittschranke1.passGate(car) == -1 : austrittschranke2.passGate(car) == -1) { return; }
         } else {
             System.out.println("choose a valid solution");
             return;
         }
 
         for (Stockwerk stockwerk : stockwerke) {
-            if (stockwerk.releaseCar(car) == 0) {
-                return;
-            }
+            if (stockwerk.releaseCar(car) == 0) { return; }
         }
     }
 }
