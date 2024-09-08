@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Parkhaus {
 
-    Austrittschranke.Eintrittsschranke eintrittsschranke = new Austrittschranke.Eintrittsschranke();
+    Eintrittsschranke eintrittsschranke = new Eintrittsschranke();
     Austrittschranke austrittschranke1 = new Austrittschranke();
     Austrittschranke austrittschranke2 = new Austrittschranke();
 
