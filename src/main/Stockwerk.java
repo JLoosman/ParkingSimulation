@@ -34,7 +34,6 @@ public class Stockwerk {
             }
             if (parkplatz.getParkedCar().equals(car)) {
                 parkplatz.setParkedCar(null);
-                CarCreator.removeCar(car);
                 return 0;
             }
         }

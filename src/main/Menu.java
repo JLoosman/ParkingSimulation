@@ -2,10 +2,12 @@ import java.util.ArrayList;
 
 public class Menu {
     private final Parkhaus parkhaus;
+    private final CarCreator carCreator;
     private final UI ui;
 
-    public Menu(Parkhaus parkhaus, UI ui) {
+    public Menu(Parkhaus parkhaus, CarCreator carCreator, UI ui) {
         this.parkhaus = parkhaus;
+        this.carCreator = carCreator;
         this.ui = ui;
     }
 
@@ -20,11 +22,11 @@ public class Menu {
 
             switch (result) {
                 case "1": {
-                    Car car = CarCreator.createCar();
+                    Car car = carCreator.createCar();
 
                     if(parkhaus.parken(car) == -1) {
                         ui.printMessage("Couldn't find a parking lot");
-                       CarCreator.removeCar(car);
+                       carCreator.removeCar(car);
                     } else {
                         ui.printMessage("Parked successfully");
                     }
@@ -46,6 +48,7 @@ public class Menu {
                     if (parkhaus.ausparken(car) == -1) {
                         ui.printMessage("You have to pay your ticket");
                     } else {
+                        carCreator.removeCar(car);
                         ui.printMessage("Car released successfully");
                     }
                     break;
@@ -64,7 +67,7 @@ public class Menu {
     }
 
     private Car chooseCar() {
-        ArrayList<Car> cars = CarCreator.getCars();
+        ArrayList<Car> cars = carCreator.getCars();
 
         ui.displayCars(cars);
         String id = ui.getString("Choose your car...");
