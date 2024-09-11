@@ -18,8 +18,6 @@ public class TerminalUI implements UI {
     }
 
     public void displayCars(ArrayList<Car> cars) {
-        for(int i = 0; i < cars.size(); i++) {
-            System.out.println(i + 1 + ") " + cars.get(i).getId());
-        }
+        cars.forEach(car -> System.out.println(cars.indexOf(car) + 1 + ") " + car.getId()));
     }
 }
