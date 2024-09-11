@@ -26,14 +26,14 @@ public class Menu {
 
                     if(parkhaus.parken(car) == -1) {
                         ui.printMessage("Couldn't find a parking lot");
-                       carCreator.removeCar(car);
+                       carCreator.removeCar2(car);
                     } else {
                         ui.printMessage("Parked successfully");
                     }
                     break;
                 }
                 case "2": {
-                    Car car = chooseCar();
+                    Car car = chooseCar2(carCreator.getCars());
                     if (car == null) { continue; }
 
                     double price = car.getTicket().pay();
@@ -49,7 +49,7 @@ public class Menu {
                     if (parkhaus.ausparken(car) == -1) {
                         ui.printMessage("You have to pay your ticket");
                     } else {
-                        carCreator.removeCar(car);
+                        carCreator.removeCar2(car);
                         ui.printMessage("Car released successfully");
                     }
                     break;

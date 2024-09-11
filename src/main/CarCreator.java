@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.stream.Stream;
 
 public class CarCreator {
 
@@ -23,5 +24,9 @@ public class CarCreator {
                 return;
             }
         }
+    }
+
+    public void removeCar2(Car car) {
+        cars.remove(cars.stream().filter(c -> c.equals(car)).findFirst().get());
     }
 }
