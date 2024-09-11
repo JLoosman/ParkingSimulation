@@ -42,7 +42,8 @@ public class Menu {
                     break;
                 }
                 case "3": {
-                    Car car = chooseCar();
+                    //Car car = chooseCar();
+                    Car car = chooseCar2(carCreator.getCars());
                     if(car == null) { continue; }
 
                     if (parkhaus.ausparken(car) == -1) {
@@ -71,6 +72,18 @@ public class Menu {
 
         ui.displayCars(cars);
         String id = ui.getString("Choose your car...");
+
+        if(id.isEmpty() || !Character.isDigit(id.charAt(0)) || Integer.parseInt(id) <= 0 || Integer.parseInt(id) > cars.size()) {
+            ui.printMessage("Please choose a valid id!");
+            return null;
+        }
+
+        return cars.get(Integer.parseInt(id) - 1);
+    }
+
+    private Car chooseCar2(ArrayList<Car> cars) {
+       ui.displayCars(cars);
+       final String id = ui.getString("Choose your car...");
 
         if(id.isEmpty() || !Character.isDigit(id.charAt(0)) || Integer.parseInt(id) <= 0 || Integer.parseInt(id) > cars.size()) {
             ui.printMessage("Please choose a valid id!");
