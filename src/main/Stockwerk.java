@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Optional;
 
 public class Stockwerk {
     private ArrayList<Parkplatz> parkplätze = new ArrayList<>();
@@ -17,25 +18,24 @@ public class Stockwerk {
     }
 
     public int parkCar(Car car) {
-        for (Parkplatz parkplatz : parkplätze) {
-            if (parkplatz.getParkedCar() == null) {
-                parkplatz.setParkedCar(car);
-                return 0;
-            }
-        }
-        return -1;
+        Optional<Parkplatz> parkplatz = parkplätze.stream()
+                .filter(p -> p.getParkedCar() == null)
+                .findFirst();
+
+        if(parkplatz.isPresent()) {
+            parkplatz.get().setParkedCar(car);
+            return 0;
+        } else { return -1; }
     }
 
     public int releaseCar(Car car) {
-        for (Parkplatz parkplatz : parkplätze) {
-            if (parkplatz.getParkedCar() == null) {
-                continue;
-            }
-            if (parkplatz.getParkedCar().equals(car)) {
-                parkplatz.setParkedCar(null);
-                return 0;
-            }
-        }
-        return -1;
+        Optional<Parkplatz> parkplatz = parkplätze.stream()
+                .filter(p -> p.getParkedCar() == car)
+                .findFirst();
+
+        if(parkplatz.isPresent()) {
+            parkplatz.get().setParkedCar(null);
+            return 0;
+        } else { return -1; }
     }
 }
