@@ -14,11 +14,9 @@ public class Parkhaus {
     }
 
     public static int getFree() {
-        int count = 0;
-        for (Stockwerk stockwerk : stockwerke) {
-            count += stockwerk.countFree();
-        }
-        return count;
+        return stockwerke.stream()
+                .mapToInt(Stockwerk::countFree)
+                .sum();
     }
 
     public int parken(Car car) {

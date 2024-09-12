@@ -26,14 +26,14 @@ public class Menu {
 
                     if(parkhaus.parken(car) == -1) {
                         ui.printMessage("Couldn't find a parking lot");
-                       carCreator.removeCar2(car);
+                       carCreator.removeCar(car);
                     } else {
                         ui.printMessage("Parked successfully");
                     }
                     break;
                 }
                 case "2": {
-                    Car car = chooseCar2(carCreator.getCars());
+                    Car car = chooseCar(carCreator.getCars());
                     if (car == null) { continue; }
 
                     double price = car.getTicket().pay();
@@ -42,14 +42,13 @@ public class Menu {
                     break;
                 }
                 case "3": {
-                    //Car car = chooseCar();
-                    Car car = chooseCar2(carCreator.getCars());
+                    Car car = chooseCar(carCreator.getCars());
                     if(car == null) { continue; }
 
                     if (parkhaus.ausparken(car) == -1) {
                         ui.printMessage("You have to pay your ticket");
                     } else {
-                        carCreator.removeCar2(car);
+                        carCreator.removeCar(car);
                         ui.printMessage("Car released successfully");
                     }
                     break;
@@ -67,21 +66,7 @@ public class Menu {
         }
     }
 
-    private Car chooseCar() {
-        ArrayList<Car> cars = carCreator.getCars();
-
-        ui.displayCars(cars);
-        String id = ui.getString("Choose your car...");
-
-        if(id.isEmpty() || !Character.isDigit(id.charAt(0)) || Integer.parseInt(id) <= 0 || Integer.parseInt(id) > cars.size()) {
-            ui.printMessage("Please choose a valid id!");
-            return null;
-        }
-
-        return cars.get(Integer.parseInt(id) - 1);
-    }
-
-    private Car chooseCar2(ArrayList<Car> cars) {
+    private Car chooseCar(ArrayList<Car> cars) {
        ui.displayCars(cars);
        final String id = ui.getString("Choose your car...");
 
