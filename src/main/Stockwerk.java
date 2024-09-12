@@ -1,20 +1,19 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Stockwerk {
-    private Parkplatz[] parkplätze = new Parkplatz[20];
+    private ArrayList<Parkplatz> parkplätze = new ArrayList<>();
 
     public Stockwerk() {
-        for(int i = 0; i < parkplätze.length; i++) {
-            parkplätze[i] = new Parkplatz();
+        for(int i = 0; i < 20; i++) {
+            parkplätze.add(new Parkplatz());
         }
     }
 
     public int countFree() {
-        int count = 0;
-        for (Parkplatz parkplatz : parkplätze) {
-            if (parkplatz.getParkedCar() == null) {
-                count++;
-            }
-        }
-        return count;
+        return (int) parkplätze.stream()
+                .filter(parkplatz -> parkplatz.getParkedCar() == null)
+                .count();
     }
 
     public int parkCar(Car car) {

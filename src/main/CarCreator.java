@@ -18,6 +18,6 @@ public class CarCreator {
 
     //remove car from ArrayList
     public void removeCar(Car car) {
-        cars.remove(cars.stream().filter(c -> c.equals(car)).findFirst().get());
+        cars.remove(car);
     }
 }
